@@ -5,6 +5,7 @@
     <!--:model表单数据的对象-->
     <!--rules表单验证规则 当然也可以自定义:model="login_rule_from"-->
     <el-form v-bind:rules="rules"
+             v-loading="loading"
              ref="LoginFrom"
              :model="LoginFrom"
              id="login_container">
@@ -33,7 +34,6 @@
 </template>
 
 <script>
-import {postRequest} from "@/utils/axios";
 
 export default {
   name: "Login",
@@ -56,6 +56,7 @@ export default {
         password: [{required: true, message: '请输入密码！', trigger: 'blur'}],
         code: [{required: true, message: '请输入验证码！', trigger: 'blur'}]
       },
+      loading: false
     }
   },
   methods: {
@@ -64,13 +65,20 @@ export default {
       // this.$refs["LoginFrom"].validate((valid)=>{
       this.$refs.LoginFrom.validate((valid) => {
         if (valid) {
-          postRequest('/login',this.LoginFrom).then(resp=>{
+          this.loading=true;
+          this.postRequest('/login',this.LoginFrom).then(resp=>{
             //resp是后端给我们返回的一个JSON对象
             //alert(JSON.stringify(resp));
             if (resp){
+              this.loading=false
+              //存储用户token
+              const tokenStr = 'Bearer' + resp.obj.token;
+              window.sessionStorage.setItem('tokenStr', tokenStr);
               //this.$router.replace() 在后端相当于重定向 是不可以回退的
               //this.$router.push() 在后端相当与转发的效果 是可以回退的
               this.$router.replace("/home");
+
+
             }
           })
         } else {

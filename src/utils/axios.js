@@ -6,6 +6,19 @@
 import axios from 'axios'
 import {Message} from 'element-ui';
 
+
+// 请求拦截器
+axios.interceptors.request.use(config => {
+    //如果存在
+    if (window.sessionStorage.getItem('tokenStr')) {
+        //请求携带后端穿过来的token
+        config.headers['Authorization'] = window.sessionStorage.getItem('tokenStr');
+    }
+    return config
+}, error => {
+    console.log(error);
+})
+
 //添加响应拦截器 success成功访问到接口
 axios.interceptors.response.use(success => {
     //业务逻辑错误

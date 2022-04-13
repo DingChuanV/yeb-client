@@ -58,10 +58,15 @@ module.exports = {
 ![image-20220413114104730](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131141883.png)
 
 
+### 登陆成功之后跳转页面
+![image-20220413114909230](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131149915.png)
 
+登陆成功之后，后端给我们一个token，用了token支持用户登陆成功之后的其他操作（也就是向后端其他的接口），所以我们现在要做就是将后端返回给我们的token
+放在请求体中，每当用户去访问后端的接口，（因为我们后端做了token的过滤器）后端都会拦截这个请求，判断请求体中的token的合法性。来筛选合格的用户的请求。
 
+![](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131156803.png)
 
-
+<img src="https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131205289.png" alt="image-20220413120515931" style="zoom:50%;" />
 
 ## 😁Project setup
 ```
