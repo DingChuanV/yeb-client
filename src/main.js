@@ -10,6 +10,8 @@ import {postRequest} from "@/utils/axios";
 import {putRequest} from "@/utils/axios";
 import {getRequest} from "@/utils/axios";
 import {deleteRequest} from "@/utils/axios";
+import {downloadRequest} from "./utils/download";
+import {initMenu} from "./utils/menus";
 
 
 Vue.use(ElementUI);
@@ -20,6 +22,7 @@ Vue.prototype.postRequest = postRequest;
 Vue.prototype.putRequest = putRequest;
 Vue.prototype.getRequest = getRequest;
 Vue.prototype.deleteRequest = deleteRequest;
+Vue.prototype.downloadRequest = downloadRequest;
 
 //路由导航守卫
 //全局前置守卫
