@@ -45,7 +45,7 @@ const store = new Vuex.Store({
         INIT_DATA(state) {
             // 浏览器本地的历史聊天记录可以在这里完成
             let data = localStorage.getItem('vue-chat-session');
-//console.log(data)
+            //console.log(data)
             if (data) {
                 state.sessions = JSON.parse(data);
             }

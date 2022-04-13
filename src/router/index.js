@@ -15,14 +15,19 @@ const routes = [
         hidden: true
     },
     {
-        path: '/home',
-        name: '导航一',
+        path: '/chat',
+        name: '在线聊天',
         component: Home,
         children: [
             {
                 path: '/chat',
                 name: 'friendChat',
                 component:FriendChat
+            }, 
+            {
+                path: '/userinfo',
+                name: '个人中心',
+                component: AdminInfo
             }
         ]
     }
