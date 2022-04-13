@@ -11,6 +11,15 @@
 <img src="https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204101424752.png" alt="image-20220410093729973" style="zoom:50%;" />
 
 ## 😄项目开发步骤
+### 😇登陆功能的开发
+所遇到的问题：
+<img width="1475" alt="image" src="https://user-images.githubusercontent.com/74408716/163091864-ea7775dd-41c1-4dc4-9dc7-f5fa4741ec02.png">
+
+但是发现是8080端口，我们后端的端口是8081。看到了问题的所在。跨域问题。只要网络协议、ip 地址、端口中任何—个不相同就是跨域请求。
+
+所以我们想在要处理跨域问题。在这里我们采用nodeJS的代理请求转发到后端的地址上。
+
+
 
 ## 😁Project setup
 ```
