@@ -66,7 +66,12 @@ export default {
         if (valid) {
           postRequest('/login',this.LoginFrom).then(resp=>{
             //resp是后端给我们返回的一个JSON对象
-            alert(JSON.stringify(resp));
+            //alert(JSON.stringify(resp));
+            if (resp){
+              //this.$router.replace() 在后端相当于重定向 是不可以回退的
+              //this.$router.push() 在后端相当与转发的效果 是可以回退的
+              this.$router.replace("/home");
+            }
           })
         } else {
           this.$message.error("请输入所有的字段！")
