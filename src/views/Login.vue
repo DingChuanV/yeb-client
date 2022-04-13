@@ -33,6 +33,7 @@ export default {
   name: "Login",
   data() {
     return {
+      //new Date可以根据不同时间点击更换图片
       captchaUrl: '/captcha?time=' + new Date(),
       LoginFrom: {
         username: 'admin',

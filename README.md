@@ -10,6 +10,8 @@
 
 <img src="https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204101424752.png" alt="image-20220410093729973" style="zoom:50%;" />
 
+## 项目开发步骤
+
 ## Project setup
 ```
 npm install
