@@ -76,9 +76,12 @@ export default {
               window.sessionStorage.setItem('tokenStr', tokenStr);
               //this.$router.replace() 在后端相当于重定向 是不可以回退的
               //this.$router.push() 在后端相当与转发的效果 是可以回退的
-              this.$router.replace("/home");
-
-
+              //清空菜单
+              this.$store.commit('initRoutes', []);
+              //页面跳转
+              let path = this.$route.query.redirect;
+              //replace 不可以返回
+              this.$router.replace((path == '/' || path == undefined) ? '/home' : path)
             }
           })
         } else {

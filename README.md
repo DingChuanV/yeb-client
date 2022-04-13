@@ -68,6 +68,383 @@ module.exports = {
 
 <img src="https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131205289.png" alt="image-20220413120515931" style="zoom:50%;" />
 
+### 菜单导航栏的开发
+
+```json
+[
+  {
+    "id": 2,
+    "url": "/",
+    "path": "/home",
+    "component": "Home",
+    "name": "员工资料",
+    "iconCls": "fa fa-user-circle-o",
+    "keepAlive": null,
+    "requireAuth": true,
+    "parentId": 1,
+    "enabled": true,
+    "children": [
+      {
+        "id": 7,
+        "url": "/employee/basic/**",
+        "path": "/emp/basic",
+        "component": "EmpBasic",
+        "name": "基本资料",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 2,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      }
+    ],
+    "roles": null
+  },
+  {
+    "id": 3,
+    "url": "/",
+    "path": "/home",
+    "component": "Home",
+    "name": "人事管理",
+    "iconCls": "fa fa-address-card-o",
+    "keepAlive": null,
+    "requireAuth": true,
+    "parentId": 1,
+    "enabled": true,
+    "children": [
+      {
+        "id": 9,
+        "url": "/personnel/emp/**",
+        "path": "/per/emp",
+        "component": "PerEmp",
+        "name": "员工资料",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 3,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 10,
+        "url": "/personnel/ec/**",
+        "path": "/per/ec",
+        "component": "PerEc",
+        "name": "员工奖惩",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 3,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 11,
+        "url": "/personnel/train/**",
+        "path": "/per/train",
+        "component": "PerTrain",
+        "name": "员工培训",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 3,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 12,
+        "url": "/personnel/salary/**",
+        "path": "/per/salary",
+        "component": "PerSalary",
+        "name": "员工调薪",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 3,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 13,
+        "url": "/personnel/remove/**",
+        "path": "/per/mv",
+        "component": "PerMv",
+        "name": "员工调动",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 3,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      }
+    ],
+    "roles": null
+  },
+  {
+    "id": 4,
+    "url": "/",
+    "path": "/home",
+    "component": "Home",
+    "name": "薪资管理",
+    "iconCls": "fa fa-money",
+    "keepAlive": null,
+    "requireAuth": true,
+    "parentId": 1,
+    "enabled": true,
+    "children": [
+      {
+        "id": 14,
+        "url": "/salary/sob/**",
+        "path": "/sal/sob",
+        "component": "SalSob",
+        "name": "工资账套管理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 4,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 15,
+        "url": "/salary/sobcfg/**",
+        "path": "/sal/sobcfg",
+        "component": "SalSobCfg",
+        "name": "员工账套设置",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 4,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 16,
+        "url": "/salary/table/**",
+        "path": "/sal/table",
+        "component": "SalTable",
+        "name": "工资表管理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 4,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 17,
+        "url": "/salary/month/**",
+        "path": "/sal/month",
+        "component": "SalMonth",
+        "name": "月末处理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 4,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 18,
+        "url": "/salary/search/**",
+        "path": "/sal/search",
+        "component": "SalSearch",
+        "name": "工资表查询",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 4,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      }
+    ],
+    "roles": null
+  },
+  {
+    "id": 5,
+    "url": "/",
+    "path": "/home",
+    "component": "Home",
+    "name": "统计管理",
+    "iconCls": "fa fa-bar-chart",
+    "keepAlive": null,
+    "requireAuth": true,
+    "parentId": 1,
+    "enabled": true,
+    "children": [
+      {
+        "id": 19,
+        "url": "/statistics/all/**",
+        "path": "/sta/all",
+        "component": "StaAll",
+        "name": "综合信息统计",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 5,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 20,
+        "url": "/statistics/score/**",
+        "path": "/sta/score",
+        "component": "StaScore",
+        "name": "员工积分统计",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 5,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 21,
+        "url": "/statistics/personnel/**",
+        "path": "/sta/pers",
+        "component": "StaPers",
+        "name": "人事信息统计",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 5,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 22,
+        "url": "/statistics/recored/**",
+        "path": "/sta/record",
+        "component": "StaRecord",
+        "name": "人事记录统计",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 5,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      }
+    ],
+    "roles": null
+  },
+  {
+    "id": 6,
+    "url": "/",
+    "path": "/home",
+    "component": "Home",
+    "name": "系统管理",
+    "iconCls": "fa fa-windows",
+    "keepAlive": null,
+    "requireAuth": true,
+    "parentId": 1,
+    "enabled": true,
+    "children": [
+      {
+        "id": 23,
+        "url": "/system/basic/**",
+        "path": "/sys/basic",
+        "component": "SysBasic",
+        "name": "基础信息设置",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 24,
+        "url": "/system/cfg/**",
+        "path": "/sys/cfg",
+        "component": "SysCfg",
+        "name": "系统管理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 25,
+        "url": "/system/log/**",
+        "path": "/sys/log",
+        "component": "SysLog",
+        "name": "操作日志管理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 26,
+        "url": "/system/admin/**",
+        "path": "/sys/admin",
+        "component": "SysAdmin",
+        "name": "操作员管理",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 27,
+        "url": "/system/data/**",
+        "path": "/sys/data",
+        "component": "SysData",
+        "name": "备份恢复数据库",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      },
+      {
+        "id": 28,
+        "url": "/system/init/**",
+        "path": "/sys/init",
+        "component": "SysInit",
+        "name": "初始化数据库",
+        "iconCls": null,
+        "keepAlive": null,
+        "requireAuth": true,
+        "parentId": 6,
+        "enabled": null,
+        "children": null,
+        "roles": null
+      }
+    ],
+    "roles": null
+  }
+]
+```
+使用Vuex集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+
 ## 😁Project setup
 ```
 npm install

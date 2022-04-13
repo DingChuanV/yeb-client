@@ -2,9 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Home from "@/views/Home";
-import Test1 from "@/views/Test1";
-import Test2 from "@/views/Test2";
-import fa from "element-ui/src/locale/lang/fa";
+import FriendChat from "../views/chat/FriendChat";
+
 
 Vue.use(VueRouter)
 
@@ -21,14 +20,9 @@ const routes = [
         component: Home,
         children: [
             {
-                path: '/test1',
-                name: '选项一',
-                component: Test1
-            },
-            {
-                path: '/test2',
-                name: '选项二',
-                component: Test2
+                path: '/chat',
+                name: 'friendChat',
+                component:FriendChat
             }
         ]
     }
