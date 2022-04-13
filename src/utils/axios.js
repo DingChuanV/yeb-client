@@ -1,11 +1,12 @@
 //axios 是一个基于promise的HTTP库，可以在浏览器和node.js中使用
 //从浏览器中创建XMLHttpRequests
-//从node.js中创建Http请求、支持Promise API、拦截请求和响应、转换请求数据和响应数据、取消请求、自动转换JSON数据、客户端支持防御XSRF
+//从node.js中创建Http请求、支持Promise API、拦截请求和响应、转换请求数据和响应数据、
+//取消请求、自动转换JSON数据、客户端支持防御XSRF
 
 import axios from 'axios'
 import {Message} from 'element-ui';
 
-//添加响应拦截器
+//添加响应拦截器 success成功访问到接口
 axios.interceptors.response.use(success => {
     //业务逻辑错误
     if (success.status && success.status == 200) {
@@ -18,8 +19,10 @@ axios.interceptors.response.use(success => {
         }
     }
     return success.data;
+    //接口访问失败 压根就没有访问到后端接口
 }, error => {
-    if (error.response.code == 504 || error.response.code = 4004) {
+    //504 前端开发中为跨域问题，一般要后端解决
+    if (error.response.code == 504 || error.response.code = 404) {
         Message.error({message: "服务器打小差了。。。"})
     } else if (error.response.code = 403) {
         Message.error({message: '权限不足，请联系管理员！'});
