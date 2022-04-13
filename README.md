@@ -18,6 +18,48 @@
 但是发现是8080端口，我们后端的端口是8081。看到了问题的所在。跨域问题。只要网络协议、ip 地址、端口中任何—个不相同就是跨域请求。
 
 所以我们想在要处理跨域问题。在这里我们采用nodeJS的代理请求转发到后端的地址上。
+```js
+//解决跨域问题 前端8080端口 -> 后端的8081端口
+//在获取验证码的时候 前端项目访问的是8080端口 而我们的后端的接口是8081 我们用前端的nodejs中的proxy转到我们的后端的端口
+
+let proxyObj = {}
+
+//代理的路径的配置
+proxyObj['/'] = {
+    //关闭websocket
+    ws: false,
+    //代理到哪里去
+    target: 'http://localhost:8081',
+    //我们发送请求头的时候我们的默认的host会被替换成我们的代理地址
+    changeOrigin: true,
+    //不重写请求路径
+    pathRewrite: {
+        '^/': '/'
+    }
+}
+//配置我们默认访问的端口和host
+module.exports = {
+    devServer: {
+        host: "localhost",
+        port: 8080,
+        //代理
+        proxy:proxyObj
+    }
+}
+```
+![image-20220413112010805](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131120918.png)
+
+![](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131136294.png)
+
+![image-20220413113958801](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131140032.png)
+
+测试登陆成功返回的信息
+
+![image-20220413114104730](https://bearbrick0.oss-cn-qingdao.aliyuncs.com/images/img/202204131141883.png)
+
+
+
+
 
 
 

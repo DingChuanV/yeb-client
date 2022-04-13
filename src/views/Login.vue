@@ -4,11 +4,15 @@
     <!--v-bind:model="" 相当于 :model="" 这种只是将父组件的数据传递到了子组件，并没有实现子组件和父组件数据的双向绑定。-->
     <!--:model表单数据的对象-->
     <!--rules表单验证规则 当然也可以自定义:model="login_rule_from"-->
-    <el-form v-bind:rules="rules" ref="LoginFrom" v-bind:model="LoginFrom" id="login_container">
+    <el-form v-bind:rules="rules"
+             ref="LoginFrom"
+             :model="LoginFrom"
+             id="login_container">
       <h3 id="login_title">云E办管理系统登陆</h3>
       <!--prop 才能和校验规则对应上-->
       <el-form-item prop="username">
-        <el-input type="text" auto-complete="false" v-model="LoginFrom.username" placeholder="请输入用户名"></el-input>
+        <el-input type="text" auto-complete="false"
+                  v-model="LoginFrom.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
 
       <el-form-item prop="password">
@@ -29,6 +33,8 @@
 </template>
 
 <script>
+import {postRequest} from "@/utils/axios";
+
 export default {
   name: "Login",
   data() {
@@ -58,7 +64,10 @@ export default {
       // this.$refs["LoginFrom"].validate((valid)=>{
       this.$refs.LoginFrom.validate((valid) => {
         if (valid) {
-          alert("ok")
+          postRequest('/login',this.LoginFrom).then(resp=>{
+            //resp是后端给我们返回的一个JSON对象
+            alert(JSON.stringify(resp));
+          })
         } else {
           this.$message.error("请输入所有的字段！")
           return false;
@@ -95,6 +104,10 @@ export default {
 #login_rem {
   text-align: left;
   margin: 0px 0px 15px 0px;
+}
+.el-form-item__content {
+  display: flex;
+  align-items: center;
 }
 
 </style>

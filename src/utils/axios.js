@@ -19,10 +19,9 @@ axios.interceptors.response.use(success => {
         }
     }
     return success.data;
-    //接口访问失败 压根就没有访问到后端接口
 }, error => {
     //504 前端开发中为跨域问题，一般要后端解决
-    if (error.response.code == 504 || error.response.code = 404) {
+    if (error.response.code == 504 || error.response.code == 404) {
         Message.error({message: "服务器打小差了。。。"})
     } else if (error.response.code = 403) {
         Message.error({message: '权限不足，请联系管理员！'});
