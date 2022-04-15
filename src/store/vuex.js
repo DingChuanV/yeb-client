@@ -87,7 +87,9 @@ store.watch(function (state) {
 }, {
     deep: true/*这个貌似是开启watch监测的判断,官方说明也比较模糊*/
 })
+
 export default store;
+
 /*
 state ：全局state对象,用于保存所有组件的公共数据
 getters ：监听state值的最新状态（计算属性）
