@@ -1,13 +1,16 @@
 <template>
-    <div>
-      StaPers 人事信息统计
-    </div>
+  <div>
+    人事信息统计
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "StaPers"
-    }
+export default {
+  name: "StaPers",
+  data() {
+    return {}
+  },
+  methods: {}
+}
 </script>
 
 <style scoped>

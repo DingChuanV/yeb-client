@@ -1,13 +1,17 @@
 <template>
-    <div>
-      EmpAdv 员工高级资料
-    </div>
+ <div>
+   高级资料
+ </div>
 </template>
 
 <script>
-    export default {
-        name: "EmpAdv"
-    }
+export default {
+name: "EmpAdv",
+  data () {
+    return {}
+  },
+  methods: {}
+}
 </script>
 
 <style scoped>

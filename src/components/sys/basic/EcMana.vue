@@ -1,11 +1,11 @@
 <template>
   <div>
-    员工调动
+    奖惩规则
   </div>
 </template>
 <script>
 export default {
-  name: "PerMv",
+  name: "EcMana",
   data() {
     return {}
   },

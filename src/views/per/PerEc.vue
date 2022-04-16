@@ -1,13 +1,16 @@
 <template>
-    <div>
-      PerEc 员工奖惩
-    </div>
+  <div>
+    员工奖惩
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "PerEc"
-    }
+export default {
+  name: "PerEc",
+  data() {
+    return {}
+  },
+  methods: {}
+}
 </script>
 
 <style scoped>

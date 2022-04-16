@@ -1,13 +1,16 @@
 <template>
-    <div>
-      StaRecord 人事记录统计
-    </div>
+  <div>
+    人事记录统计
+  </div>
 </template>
-
 <script>
-    export default {
-        name: "StaRecord"
-    }
+export default {
+  name: "StaRecord",
+  data() {
+    return {}
+  },
+  methods: {}
+}
 </script>
 
 <style scoped>

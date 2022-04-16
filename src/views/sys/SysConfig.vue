@@ -1,11 +1,11 @@
 <template>
   <div>
-    员工调动
+    系统管理
   </div>
 </template>
 <script>
 export default {
-  name: "PerMv",
+  name: "SysConfig",
   data() {
     return {}
   },
